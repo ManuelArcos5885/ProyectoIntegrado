@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="containerLogin espacio my-5">
+    <div class="heading">Inicio Sesión</div>
+    <form action="" class="form" (ngSubmit)="onSubmit()">
+      <input [(ngModel)]="usuario.email" required="" class="input" type="email" name="email" id="email" placeholder="Email">
+      <input [(ngModel)]="usuario.password" required="" class="input" type="password" name="password" id="password" placeholder="Contraseña">
+      <input class="login-button" type="submit" value="Inicio Sesion">
+      
+    </form>
+
+    <span class="agreement"><a class="nav-link" [routerLink]="['/CrearUsuario']">Crear nueva cuenta</a></span>
+  </div>
+</div>

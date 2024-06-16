@@ -1,0 +1,47 @@
+<div class="modal" id="elegirUsuariosModal">
+    <div class="modal-content">
+      <span class="close" (click)="closeModal()">&times;</span>
+        <div class="container">
+            <div class="containerLogin espacio my-5">
+                <div class="heading">Elegir Usuarios Miembros</div>
+                <form action="" class="form" (ngSubmit)="onSubmit()">
+                    <div class="row">
+                        <table class="table table-striped">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Apellidos</th>
+                                    <th>username</th>
+                                    <th>email</th>
+                                    <th>Elegir</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                <tr *ngFor="let usuario of usuarios">
+                                    <td>{{usuario.nombre}}</td>
+                                    <td>{{usuario.apellidos}}</td>
+                                    <td>{{usuario.username}}</td>
+                                    <td>{{usuario.email}}</td>
+                                    <td *ngIf="usuario.username != usuarioC?.username">
+                                        <div class="checkbox-wrapper">
+                                            <input id="checkbox-{{usuario.username}}" type="checkbox" [(ngModel)]="usuario.seleccionado" name="checkbox-{{usuario.username}}">
+                                            <label for="checkbox-{{usuario.username}}">
+                                              <div class="tick_mark"></div>
+                                            </label>
+                                          </div>
+                                    </td>
+                                    
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+             
+                    
+                    <input class="login-button" type="submit" value="Guardar Cambios">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

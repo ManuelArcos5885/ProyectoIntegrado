@@ -1,0 +1,104 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <div class="logoFervor" title="Inicio">
+      <a class="navbar-brand" href=""><img src="../../../assets/imagenes_proyecto/otros/LogoFervor.png" class="logo"></a>
+    </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
+        <li class="nav-item">
+          <a class="nav-link" routerLink=""><p class="tituloWeb">Fervor</p></a>
+        </li>
+
+        <li class="nav-item dropdown d-lg-none">
+          <a class="nav-link dropdown-toggle" href="#" id="mobileMenuDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Menú
+          </a>
+          <ul class="dropdown-menu bg-dark opcionesPerfil" aria-labelledby="mobileMenuDropdown">
+            <li><a class="dropdown-item text-white enlaceSelec" routerLink="NetBall">NetBall</a></li>
+            <li class="dropdown-submenu">
+              <a class="dropdown-item text-white dropdown-toggle" href="#">Equipos</a>
+              <ul class="dropdown-menu bg-dark opcionesPerfil">
+                <li><a class="dropdown-item text-white enlaceSelec" [routerLink]="['/ListarEquipos', 'primera']">Primera</a></li>
+                <li><a class="dropdown-item text-white enlaceSelec" [routerLink]="['/ListarEquipos', 'segunda']">Segunda</a></li>
+                <li><a class="dropdown-item text-white enlaceSelec" [routerLink]="['/ListarEquipos', 'tercera']">Primera RFEF</a></li>
+              </ul>
+            </li>
+            <li class="dropdown-submenu">
+              <a class="dropdown-item text-white dropdown-toggle" href="#">Europa</a>
+              <ul class="dropdown-menu bg-dark opcionesPerfil">
+                <li><a class="dropdown-item text-white enlaceSelec" routerLink="ChampionsLeague">Champions League</a></li>
+                <li><a class="dropdown-item text-white enlaceSelec" routerLink="EuropaLeague">Europa League</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown d-none d-lg-block">
+          <a class="nav-link dropdown-toggle" href="#" id="ligasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Ligas
+          </a>
+          <ul class="dropdown-menu bg-dark opcionesPerfil" aria-labelledby="ligasDropdown">
+            <li><a class="dropdown-item text-white enlaceSelec" [routerLink]="['/ListarEquipos', 'primera']">Primera</a></li>
+            <li><a class="dropdown-item text-white enlaceSelec" [routerLink]="['/ListarEquipos', 'segunda']">Segunda</a></li>
+            <li><a class="dropdown-item text-white enlaceSelec" [routerLink]="['/ListarEquipos', 'tercera']">Primera RFEF</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item d-none d-lg-block">
+          <a class="nav-link text-white" routerLink="ListarTitulos">Titulos</a>
+        </li>
+
+        <li class="nav-item dropdown d-none d-lg-block">
+          <a class="nav-link dropdown-toggle" href="#" id="europaDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Europa
+          </a>
+          <ul class="dropdown-menu bg-dark opcionesPerfil" aria-labelledby="europaDropdown">
+            <li><a class="dropdown-item text-white enlaceSelec" routerLink="ChampionsLeague">Champions League</a></li>
+            <li><a class="dropdown-item text-white enlaceSelec" routerLink="EuropaLeague">Europa League</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item d-none d-lg-block">
+          <a class="nav-link text-white" routerLink="NetBall">NetBall</a>
+        </li>
+
+        <li class="nav-item d-none d-lg-block" *ngIf="isAuthenticated() && usuarioC && usuarioC.tipo_usuario && (usuarioC.tipo_usuario == 'A' || usuarioC.tipo_usuario == 'S')">
+          <a class="nav-link text-white" routerLink="ListarUsuarios">Ver Usuarios</a>
+        </li>
+
+        <li class="nav-item d-none d-lg-block" *ngIf="isAuthenticated() && usuarioC && usuarioC.tipo_usuario &&  usuarioC.tipo_usuario == 'S'">
+          <a class="nav-link text-white" routerLink="Papelera">Papelera</a>
+        </li>
+
+      </ul>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+        <li class="nav-item" *ngIf="!isAuthenticated()">
+          <a class="nav-link text-white" routerLink="Login">Iniciar Sesion</a>
+        </li>
+
+        <li class="nav-item dropdown usuario" *ngIf="isAuthenticated()">
+          <a class="nav-link dropdown-toggle d-flex align-items-center text-white" href="#" id="UsuarioDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <h3 class="mb-0">👤{{usuarioC?.nombre}} <span *ngIf="escudoEquipoUsuario !== undefined && escudoEquipoUsuario !== ''"><img class="escudoUsuario" [src]="escudoEquipoUsuario"></span> </h3>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end bg-dark opcionesPerfil" aria-labelledby="UsuarioDropdown">
+            <li>
+              <a class="dropdown-item text-white enlaceSelec" *ngIf="usuarioC?.equipo_nombre" [routerLink]="['/DetallesEquipo', { nombreEquipo: usuarioC?.equipo_nombre }]">Mi Equipo</a>
+              <a class="dropdown-item text-white enlaceSelec" *ngIf="!usuarioC || !usuarioC?.equipo_nombre" [routerLink]="['/ElegirClub']">Mi Equipo</a>
+            </li>
+            <li>
+              <button class="dropdown-item text-white enlaceSelec" routerLink="Perfil">
+                <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" data-name="Layer 2"><path fill="#7D8590" d="m1.5 13v1a.5.5 0 0 0 .3379.4731 18.9718 18.9718 0 0 0 6.1621 1.0269 18.9629 18.9629 0 0 0 6.1621-1.0269.5.5 0 0 0 .3379-.4731v-1a6.5083 6.5083 0 0 0 -4.461-6.1676 3.5 3.5 0 1 0 -4.078 0 6.5083 6.5083 0 0 0 -4.461 6.1676zm4-9a2.5 2.5 0 1 1 2.5 2.5 2.5026 2.5026 0 0 1 -2.5-2.5zm2.5 3.5a5.5066 5.5066 0 0 1 5.5 5.5v.6392a18.08 18.08 0 0 1 -11 0v-.6392a5.5066 5.5066 0 0 1 5.5-5.5z"></path></svg>
+                Perfil
+              </button>
+            </li>
+            <li><a class="dropdown-item text-white enlaceSelec" (click)="cerrarSesion()" routerLink="">Cerrar Sesión</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

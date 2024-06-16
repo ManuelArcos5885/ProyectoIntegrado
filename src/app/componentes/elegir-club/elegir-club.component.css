@@ -1,0 +1,113 @@
+.card {
+  padding: 10px;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  height: 300px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, rgb(0, 34, 255) 0%, rgb(2, 2, 84) 100%);
+  transition: all 0.5s ease-in-out;
+  transform-style: preserve-3d;
+  box-shadow: rgba(5, 71, 17, 0) 40px 50px 25px -40px, rgba(5, 71, 17, 0.2) 0px 25px 25px -5px;
+  position: relative;
+}
+.cardEquipoSelecionado{
+background: linear-gradient(135deg, rgb(246, 217, 26) 0%, rgb(200, 160, 30) 100%);
+}
+
+.escudo {
+  width: 150px;
+  max-height: 250px;
+  display: block;
+  margin: 0 auto;
+  transition: transform 0.4s ease-in-out;
+  transform-style: preserve-3d;
+}
+
+.parent:hover .escudo {
+  transform: translate3d(0, 0, 50px);
+}
+
+.title {
+  display: block;
+  color: white;
+  font-weight: 800;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.parent {
+  height: auto;
+  perspective: 1000px;
+}
+
+.parent:hover .card {
+  transform: rotate3d(1, 1, 0, 30deg);
+  background: linear-gradient(135deg, rgb(5, 133, 54) 0%, rgb(2, 66, 29) 100%);
+
+}
+
+.card .contenido .contenedorEscudo:hover {
+  transform: scale(1.2);
+}
+
+.parent:hover .escudo {
+  transform: translate3d(0, 0, 40px);
+}
+
+.parent:hover .card .contenido .contenedorEscudo .escudo {
+  transform: translate3d(0, 0, 40px);
+
+}
+
+.parent:hover .card .contenido .content .title {
+  transform: translate3d(0, 0, 40px);
+
+}
+
+.content .title {
+  display: block;
+  font-weight: 900;
+  font-size: 20px;
+}
+
+
+
+.contenido {
+  padding: 10px 12px;
+  transform-style: preserve-3d;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  transform: translate3d(0, 0, 26px);
+}
+
+.contenido .contenedorEscudo {
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease;
+}
+
+.contenido .content {
+  transform-style: preserve-3d;
+  transition: all 0.2s ease-in-out;
+}
+
+.glass {
+  transform-style: preserve-3d;
+  position: absolute;
+  inset: 8px;
+  border-radius: 55px;
+  border-top-right-radius: 100%;
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.349) 0%, rgba(255, 255, 255, 0.815) 100%);
+  transform: translate3d(0px, 0px, 25px);
+  border-left: 1px solid white;
+  border-bottom: 1px solid white;
+  transition: all 0.5s ease-in-out;
+}
+
+
+.dropdown-item{
+  cursor: pointer;
+}

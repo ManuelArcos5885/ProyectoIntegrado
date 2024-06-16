@@ -1,0 +1,27 @@
+.escudoEquipo {
+    width: 100px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.bandera {
+    height: 100px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.importante, .escudoEquipo, .bandera {
+    margin: 10px;
+    cursor: pointer;
+}
+
+.escudoEquipo:hover, .bandera:hover, .importante:hover {
+    transform: scale(1.2);
+}
+
+.importante {
+    transition: transform 0.3s ease-in-out;
+}
+
+.equiposConComunidad{
+    text-align: center;
+    vertical-align: middle;
+}

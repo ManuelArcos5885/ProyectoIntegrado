@@ -1,0 +1,15 @@
+.nombreEquipo {
+    text-align: center;
+    background: #0066cc;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px 10px 0 0;
+  }
+
+  .equipacion{
+    width: 100%;
+  }
+
+  .filaBotonesAdmin{
+    margin-bottom: 40px;
+  }

@@ -1,0 +1,80 @@
+.nombreEquipo {
+  text-align: center;
+  background: #0066cc;
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px 10px 0 0;
+}
+
+.club-info {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background: #e0e0e0;
+}
+
+.logo {
+  width: 200px;
+  height: auto;
+  margin-right: 20px;
+}
+
+.Trofeo{
+  width: 70px;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+}
+
+.info h2 {
+  margin-left: 10px;
+}
+
+.info p,
+.info img {
+  margin-left: 10px;
+}
+
+.escudo,
+.bandera {
+  width: 50px;
+  height: auto;
+}
+
+.datos-nav {
+  background: #0066cc;
+  padding: 10px;
+  text-align: center;
+  border-radius: 0 0 10px 10px;
+  color: white;
+}
+
+.datos-nav div {
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+  font-size: 24px;
+  padding: 0;
+  margin: 0;
+}
+
+.datos-nav div :hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.datosClub{
+  font-weight: 700;
+  font-size: 30px;
+}
+
+.enlaceDetalels{
+  cursor: pointer;
+}

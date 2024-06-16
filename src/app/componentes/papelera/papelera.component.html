@@ -1,0 +1,110 @@
+<div class="container">
+    <div class="row filaBotones">
+        <div class="col" *ngIf="usuarioC && (usuarioC.tipo_usuario == 'A' || usuarioC.tipo_usuario == 'S')">
+            <button class="button cancelar" name="Detalles" (click)="mostrarPapeleraTitulos()">Titulos</button>
+        </div>
+
+        <div class="col" *ngIf="usuarioC && (usuarioC.tipo_usuario == 'A' || usuarioC.tipo_usuario == 'S')">
+            <button class="button cancelar" name="Detalles" (click)="mostrarPapeleraEquipos()">Equipos</button>
+        </div>
+
+        <div class="col" *ngIf="usuarioC && (usuarioC.tipo_usuario == 'A' || usuarioC.tipo_usuario == 'S')">
+            <button class="button cancelar" name="Detalles" (click)="mostrarPapeleraComentarios()">Comentarios</button>
+        </div>
+    </div>
+
+    <div class="container" *ngIf="mostrarTitulos">
+        <div *ngIf="ganadores && ganadores.length < 1">VACIA</div>
+        <table class="table table-striped" *ngIf="ganadores && ganadores.length > 0">
+            <thead class="table-dark">
+                <tr>
+                    <th>Equipo Escudo</th>
+                    <th>Equipo</th>
+                    <th>Titulo</th>
+                    <th>Temporada</th>
+                    <th *ngIf="usuarioC && (usuarioC.tipo_usuario == 'A' || usuarioC.tipo_usuario == 'S')">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngFor="let ganador of ganadores; let i = index">
+                    <tr *ngIf="Equipos[i] && Titulos[i]">
+                        <td><a class="nav-link" [routerLink]="['/DetallesEquipo', { nombreEquipo: Equipos[i].equipo_nombre }]"><img src="{{ Equipos[i].escudo_equipo}}" alt="{{ Equipos[i].equipo_nombre }}" title="{{ Equipos[i].equipo_nombre }}"></a></td>
+                        <td class="importante">{{ Equipos[i].equipo_nombre }}</td>
+                        <td class="importante">{{ Titulos[i].tituloNombre }}</td>
+                        <td class="importante">{{ ganador.temporada }}</td>
+                        <td *ngIf="usuarioC && (usuarioC.tipo_usuario == 'A' || usuarioC.tipo_usuario == 'S')">
+                            <button *ngIf="usuarioC && (usuarioC.tipo_usuario == 'A' || usuarioC.tipo_usuario == 'S')" class="button cancelar" name="Editar" (click)="restablecer(ganador.idGanadores)">Restablecer</button>
+                            <button *ngIf="usuarioC && (usuarioC.tipo_usuario == 'A' || usuarioC.tipo_usuario == 'S')" class="button borrar" name="Borrar" (click)="confirmarBorrado(ganador.idGanadores)">Borrar Permanentemente</button>
+                                        
+                        </td>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
+    </div>
+    <div class="container" *ngIf="mostrarEquipos">
+        <div *ngIf="equiposObtenidos && equiposObtenidos.length < 1">VACIA</div>
+        <table class="table table-striped" *ngIf="equiposObtenidos && equiposObtenidos.length > 0">
+            <thead class="table-dark">
+                <tr>
+                    <th>Equipo Escudo</th>
+                    <th>Nombre Equipo</th>
+                    <th>comunidad nombre</th>
+                    <th>ciudad nombre</th>
+                    <th *ngIf="usuarioC && (usuarioC.tipo_usuario == 'A' || usuarioC.tipo_usuario == 'S')">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngFor="let club of equiposObtenidos">
+                    <tr>
+                        <td><img src="{{ club.escudo_equipo}}" alt="{{ club.equipo_nombre }}" title="{{ club.equipo_nombre }}"></td>
+                        <td class="importante">{{ club.equipo_nombre }}</td>
+                        <td class="importante">{{ club.comunidad_nombre }}</td>
+                        <td class="importante">{{ club.ciudad_nombre }}</td>
+                        <td *ngIf="usuarioC && (usuarioC.tipo_usuario == 'A' || usuarioC.tipo_usuario == 'S')">
+                            <button *ngIf="usuarioC && (usuarioC.tipo_usuario == 'A' || usuarioC.tipo_usuario == 'S')" class="button cancelar" name="Editar" (click)="restablecerClub(club.idequipos)">Restablecer</button>
+                            <button *ngIf="usuarioC && (usuarioC.tipo_usuario == 'A' || usuarioC.tipo_usuario == 'S')" class="button borrar" name="Borrar" (click)="confirmarBorradoClub(club.idequipos)">Borrar Permanentemente</button>
+                                        
+                        </td>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
+    </div>
+    
+
+    <div class="container" *ngIf="mostrarComentarios">
+        <div *ngIf="comentariosConUsuario && comentariosConUsuario.length < 1">VACIA</div>
+        <table class="table table-striped" *ngIf="comentariosConUsuario && comentariosConUsuario.length > 0">
+            <thead class="table-dark">
+                <tr>
+                    <th>usuario</th>
+                    <th>mensaje</th>
+                    <th>canal</th>
+                    <th>tema</th>
+                    <th *ngIf="usuarioC && (usuarioC.tipo_usuario == 'A' || usuarioC.tipo_usuario == 'S')">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngFor="let comentario of comentariosConUsuario">
+                    <tr>
+                        <td class="importante">{{ comentario.nombreUsuario }}</td>
+                        <td class="importante">{{ comentario.mensaje }}</td>
+                        <td class="importante">{{ comentario.canal }}</td>
+                        <td class="importante">{{ comentario.tema }}</td>
+                        <td *ngIf="usuarioC && (usuarioC.tipo_usuario == 'A' || usuarioC.tipo_usuario == 'S')">
+                            <button *ngIf="usuarioC && (usuarioC.tipo_usuario == 'A' || usuarioC.tipo_usuario == 'S')" class="button cancelar" name="Editar" (click)="restablecerComentario(comentario.idcomentario)">Restablecer</button>
+                            <button *ngIf="usuarioC && (usuarioC.tipo_usuario == 'A' || usuarioC.tipo_usuario == 'S')" class="button borrar" name="Borrar" (click)="confirmarBorradoComentario(comentario.idcomentario)">Borrar Permanentemente</button>
+                                        
+                        </td>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
+    </div>
+
+
+</div>
+
+
+<modalAdvertencia *ngIf="mensajeAdvertencia" [mensajePasado]="mensajeAdvertencia" (close)="closeModal($event)"></modalAdvertencia>

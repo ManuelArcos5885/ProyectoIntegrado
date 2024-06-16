@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="espacio my-5">
+        <form (ngSubmit)="onSubmit()" class="form">
+            <div class="heading">Crear Ganador</div>
+            <div class="row">
+                <div class="col">
+                    <label>
+                        <select name="equipo" [(ngModel)]="ganador.equipo" class="input">
+                            <option *ngFor="let equipo of equipos" value="{{equipo.idequipos}}">{{ equipo.equipo_nombre }}</option>
+                        </select>
+                        <span>Equipo</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label>
+                        <select name="comunidad_nombre" [(ngModel)]="ganador.titulo" class="input">
+                            <option *ngFor="let titulo of titulos" value="{{titulo.idtitulo}}">{{ titulo.tituloNombre }}</option>
+                        </select>
+                        <span>Titulo</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label>
+                        <input [(ngModel)]="ganador.temporada" required="" class="input" type="text" name="temporada" id="temporada" placeholder="Temporada" >
+                        <span>Temporada</span>
+                    </label>
+                </div>
+            </div>
+
+            <button class="btn btn-success" type="submit">Guardar</button>
+        </form>
+    </div>
+</div>

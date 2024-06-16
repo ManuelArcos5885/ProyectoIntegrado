@@ -1,0 +1,75 @@
+<div class="modal" id="editarEquipoDatos">
+    <div class="modal-content">
+        <span class="close" (click)="closeModal()">&times;</span>
+        <div class="container">
+            <div class="containerLogin espacio my-5">
+                <div class="heading">Editar Datos {{equipo.equipo_nombre}}</div>
+                <form action="" class="form" (ngSubmit)="onSubmit()">
+                    <div class="row">
+                        <div class="col">
+                            <label>
+                                <input [(ngModel)]="equipo.equipo_nombre_completo" required="" class="input" type="text" name="nombreCompleto" id="nombreCompleto" placeholder="Nombre Completo">
+                                <span>Nombre Completo Equipo</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label>
+                                <input [(ngModel)]="equipo.fecha_fundacion" required="" class="input" type="number" name="fundacion" id="fundacion" placeholder="Fundación">
+                                <span>Fundación</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label>
+                                <input [(ngModel)]="equipo.color_primario" required="" class="" type="color" name="color_primario" id="color_primario" placeholder="Color Primario">
+                                <span>Color Principal</span>
+                                {{equipo.color_primario}}
+                            </label>
+                        </div>
+                        <div class="col">
+                            <label>
+                                <input [(ngModel)]="equipo.color_secundario" required="" class="" type="color" name="color_secundario" id="color_secundario" placeholder="Color Secundario">
+                                <span>Color Secundario</span>
+                                {{equipo.color_secundario}}
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label>
+                                <select [(ngModel)]="equipo.comunidad_nombre" required="" class="input" name="comunidadAutonoma" id="comunidadAutonoma">
+                                    <option *ngFor="let comunidad of comunidades" [value]="comunidad.comunidad_nombre">{{ comunidad.comunidad_nombre }}</option>
+                                </select>
+                                <span>Comunidad Autónoma</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label>
+                                <input [(ngModel)]="equipo.ciudad_nombre" required="" class="input" type="text" name="ciudadNombre" id="ciudadNombre" placeholder="Nombre Ciudad">
+                                <span>Nombre Ciudad</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <label>
+                                <select [(ngModel)]="equipo.division_actual" required="" class="input" name="divisionActual" id="divisionActual">
+                                    <option *ngFor="let division of divisiones" [value]="division">{{ division }}</option>
+                                    <option  [value]="null">No seleccionar</option>
+                                </select>
+                                <span>División Actual</span>
+                            </label>
+                        </div>
+                    </div>
+                    <input class="login-button" type="submit" value="Guardar Cambios">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

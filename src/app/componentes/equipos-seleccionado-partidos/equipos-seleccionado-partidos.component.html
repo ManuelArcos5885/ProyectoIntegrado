@@ -1,0 +1,29 @@
+<div class="filaBotonesAdmin" *ngFor="let equipo of equipoPasado">
+  <div class="col-2" *ngIf="usuarioC && (usuarioC.tipo_usuario == 'A' || usuarioC.tipo_usuario == 'S')">
+    <button class="btn btn-info" name="Detalles" (click)="openModal(equipo)">Editar Partidos</button>
+  </div>
+</div>
+
+<div *ngFor="let equipo of equipoPasado" class="container">
+    <table class="table-bordered table table-striped">
+      <thead> 
+        <tr>
+          <th>Partidos Jugados</th>
+          <th>Partidos Ganados</th>
+          <th>Partidos Empatados</th>
+          <th>Partidos Perdidos</th>
+          <th *ngIf="equipo.puntos_historico">Puntos Historico</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ equipo.partidos_jugados }}</td>
+          <td>{{ equipo.partidos_empatados }}</td>
+          <td>{{ equipo.partidos_ganados }}</td>
+          <td>{{ equipo.puntos_historico}}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+
+<app-editar-partidos *ngIf="equipoSeleccionado" [equipo]="equipoSeleccionado" (close)="closeModal($event)"></app-editar-partidos>

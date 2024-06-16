@@ -1,0 +1,29 @@
+<div class="modal" id="editarGolModal">
+    <div class="modal-content">
+      <span class="close" (click)="closeModal()">&times;</span>
+        <div class="container">
+            <div class="containerLogin espacio my-5">
+                <div class="heading">Editar Goles</div>
+                <form action="" class="form" (ngSubmit)="onSubmit()">
+                    <div class="row">
+                        <div class="col">
+                            <label>
+                                <input [(ngModel)]="equipo.goles_favor" required="" class="input" type="text" name="golFavor" id="golFavor" placeholder="Gol Favor" >
+                                <span>Gol Favor</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label>
+                                <input [(ngModel)]="equipo.goles_contra" required="" class="input" type="text" name="golContra" id="golContra" placeholder="Gol Contra">
+                                <span>Gol Contra</span>
+                            </label>
+                        </div>
+                    </div>
+                    <input class="login-button" type="submit" value="Guardar Cambios">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

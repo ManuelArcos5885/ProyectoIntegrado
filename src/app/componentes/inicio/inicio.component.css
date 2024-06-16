@@ -1,0 +1,117 @@
+.carouselInicio {
+    width: 100%;
+    margin: auto;
+}
+
+.carousel-inner img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.inicioSesion{
+    background-color: #6E00E6;
+    margin: 20px;
+}
+
+.tituloInicioSesion{
+    background-color: #460093;
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    font-size: 24px;
+}
+
+.noticiasRecientes{
+    background-color: #0071E6;
+    margin: 20px;
+}
+
+.tituloNoticiasRecientes{
+    background-color: #0026E6;
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.contenedorCarousel{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+
+.ligasDisponibles{
+    background-color: #0071E6;
+    margin: 20px;
+}
+
+.ligasDisponiblesTitulos{
+    background-color: #0026E6;
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+
+.logoLiga{
+    width: 100px;
+}
+
+.botonInicioSesion {
+    background-color: #460093;
+    border: solid transparent;
+    border-radius: 16px;
+    border-width: 0 0 4px;
+    box-sizing: border-box;
+    color: white;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: .8px;
+    line-height: 20px;
+    margin: 0;
+    outline: none;
+    overflow: visible;
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    touch-action: manipulation;
+    transform: translateZ(0);
+    transition: filter .2s;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 90%;
+    
+   }
+   
+   button:hover, button:focus{
+    filter: brightness(1.1);
+   }
+   
+   .botonInicioSesion:active {
+    padding-bottom: 10px;
+   }
+
+
+
+   .buttonCarousel{
+    background-color: #E6AD00;
+
+   }
+
+   .carousel-control-prev-icon, .carousel-control-next-icon{
+    size: 40px;
+   }
+
+   .imagenComentario{
+    width: 80px;
+   }
+
+   .comentariosRecientes{
+    margin-bottom: 20px;
+    cursor: pointer;
+   }

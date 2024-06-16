@@ -1,0 +1,55 @@
+<div class="modal" id="editarUsuario">
+    <div class="modal-content">
+      <span class="close" (click)="closeModal()">&times;</span>
+        <div class="container">
+            <div class="containerLogin espacio my-5">
+                <div class="heading">Editar Usuario</div>
+                <form action="" class="form" (ngSubmit)="onSubmit()">
+                    <div class="row">
+                        <div class="col">
+                            <label>
+                                <input [(ngModel)]="usuario.nombre" required="" class="input" type="text" name="nombre" id="nombre" placeholder="nombre" >
+                                <span>Nombre</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label>
+                                <input [(ngModel)]="usuario.apellidos" required="" class="input" type="text" name="Apellidos" id="Apellidos" placeholder="Apellidos">
+                                <span>Apellidos</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label>
+                                <input [(ngModel)]="usuario.username" required="" class="input" type="text" name="Username" id="Username" placeholder="Username">
+                                <span>Username</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label>
+                                <input [(ngModel)]="usuario.email" required="" class="input" type="text" name="Email" id="Email" placeholder="Email">
+                                <span>Email</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="row" *ngIf="usuarioC && usuarioC.tipo_usuario == 'S'">
+                        <div class="col">
+                            <label>
+                                <input [(ngModel)]="usuario.tipo_usuario" required="" class="input" type="text" name="tipoUsuario" id="tipoUsuario" placeholder="Tipo Usuario">
+                                <span>Tipo Usuario</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <input class="login-button" type="submit" value="Guardar Cambios">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

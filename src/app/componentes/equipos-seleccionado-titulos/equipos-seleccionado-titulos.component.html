@@ -1,0 +1,61 @@
+<div class="filaBotonesAdmin">
+    <div class="col-2" *ngIf="usuarioC && (usuarioC.tipo_usuario == 'A' || usuarioC.tipo_usuario == 'S')">
+        <a class="nav-link" [routerLink]="['/CrearTitulo']"><button class="btn btn-info" name="Detalles">Crear Titulo</button></a>
+    </div>
+
+    <div class="col-2" *ngIf="usuarioC && (usuarioC.tipo_usuario == 'A' || usuarioC.tipo_usuario == 'S')">
+        <a class="nav-link" [routerLink]="['/CrearGanador', { equipoPasado: equipoPasado[0].idequipos}]"><button class="btn btn-info" name="Detalles">Crear Ganador</button></a>
+    </div>
+</div>
+
+<div class="row botonesTitulos">
+    <div class="col">
+        <img src="../../../assets/imagenes_proyecto/otros/BotonEquiposLALIGA.png" class="botonEquipos" (click)="seleccionarBoton('Laliga')">
+    </div>
+    <div class="col">
+        <img src="../../../assets/imagenes_proyecto/otros/BotonCopaDelRey.png" class="botonEquipos" (click)="seleccionarBoton('Copa del Rey')">
+    </div>
+    <div class="col">
+        <img src="../../../assets/imagenes_proyecto/otros/BotonEquiposLALIGASegunda.png" class="botonEquipos" (click)="seleccionarBoton('LaLiga Segunda')">
+    </div>
+    <div class="col">
+        <img src="../../../assets/imagenes_proyecto/otros/BotonEquiposSupercopaEspaña.png" class="botonEquipos" (click)="seleccionarBoton('Supercopa Europa')">
+    </div>
+    <div class="col">
+        <img src="../../../assets/imagenes_proyecto/otros/BotonEquiposEuropa.png" class="botonEquipos" (click)="seleccionarBoton('Europa League')">
+    </div>
+
+    <div class="col">
+        <img src="../../../assets/imagenes_proyecto/otros/botonEquiposChampions.png" class="botonEquipos" (click)="seleccionarBoton('Champions')">
+    </div>
+
+</div>
+
+<div class="container">
+    <table class="table table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Equipo Escudo</th>
+                <th>Equipo</th>
+                <th>Titulo</th>
+                <th>Temporada</th>
+                <th *ngIf="usuarioC && (usuarioC.tipo_usuario == 'A' || usuarioC.tipo_usuario == 'S')">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let ganador of ganadores; let i = index">
+                <tr *ngIf="Equipos[i] && Titulos[i]">
+                    <td><a class="nav-link" [routerLink]="['/DetallesEquipo', { nombreEquipo: Equipos[i].equipo_nombre }]"><img class="escudoEquipo" src="{{ Equipos[i].escudo_equipo}}" alt="{{ Equipos[i].equipo_nombre }}" title="{{ Equipos[i].equipo_nombre }}"></a></td>
+                    <td class="importante">{{ Equipos[i].equipo_nombre }}</td>
+                    <td class="importante">{{ Titulos[i].tituloNombre }}</td>
+                    <td class="importante">{{ ganador.temporada }}</td>
+                    <td *ngIf="usuarioC && (usuarioC.tipo_usuario == 'A' || usuarioC.tipo_usuario == 'S')">
+                        <button *ngIf="usuarioC && (usuarioC.tipo_usuario == 'A' || usuarioC.tipo_usuario == 'S')" class="btn btn-info" name="Editar" [routerLink]="['/EditarTitulo', { nombreEquipo: Equipos[i].equipo_nombre, nombreTitulo: Titulos[i].tituloNombre }]">Editar</button>
+                        <button *ngIf="usuarioC && (usuarioC.tipo_usuario == 'A' || usuarioC.tipo_usuario == 'S')" class="btn btn-danger" name="Borrar" (click)="confirmarBorrado(ganador.idGanadores)">Borrar</button>
+                                    
+                    </td>
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+</div>

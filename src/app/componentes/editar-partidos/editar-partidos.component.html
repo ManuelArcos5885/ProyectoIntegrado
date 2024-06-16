@@ -1,0 +1,45 @@
+<div class="modal" id="editarPartidoModal">
+    <div class="modal-content">
+      <span class="close" (click)="closeModal()">&times;</span>
+        <div class="container">
+            <div class="containerLogin espacio my-5">
+                <div class="heading">Editar Partidos</div>
+                <form action="" class="form" (ngSubmit)="onSubmit()">
+                    <div class="row">
+                        <div class="col">
+                            <label>
+                                <input [(ngModel)]="equipo.partidos_jugados" required="" class="input" type="text" name="PartidosJugados" id="PartidosJugados" placeholder="Partidos Jugados" >
+                                <span>Partidos Jugados</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label>
+                                <input [(ngModel)]="equipo.partidos_ganados" required="" class="input" type="text" name="PartidosGanados" id="PartidosGanados" placeholder="Partidos Ganados" >
+                                <span>Partidos Ganados</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label>
+                                <input [(ngModel)]="equipo.partidos_empatados" required="" class="input" type="text" name="PartidosEmpatados" id="PartidosEmpatados" placeholder="Partidos Empatados" >
+                                <span>Partidos Empatados</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label>
+                                <input [(ngModel)]="equipo.partidos_perdidos" required="" class="input" type="text" name="PartidosPerdidos" id="PartidosPerdidos" placeholder="Partidos Perdidos" >
+                                <span>Partidos Perdidos</span>
+                            </label>
+                        </div>
+                    </div>
+                    <input class="login-button" type="submit" value="Guardar Cambios">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

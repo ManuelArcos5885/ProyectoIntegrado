@@ -1,0 +1,59 @@
+<div class="container my-4 espacio">
+    <div class="perfil p-4 rounded shadow-sm bg-white" *ngIf="usuarioC">
+        <div class="row tituloPerfil mb-4">
+            <div class="col heading"><h1>Perfil Usuario</h1></div>
+        </div>
+        <div class="row align-items-center my5">
+            <div class="col-4 text-center">
+                <span class="iconoUsuario display-1">👤</span>
+            </div>
+            <div class="col-md-8 datosGeneralesUsuario">
+                <div class="row mb-2 detallesUsuarioPrincipal">
+                    <div class="col d-flex">
+                        <h2 class="mb-2 detallesUsuarioPrincipal"> {{ usuarioC.username }}</h2>
+                    </div>
+                    <div class="col d-flex">
+                        <h3 class="mb-2 detallesUsuarioPrincipal" *ngIf="usuarioC.tipo_usuario == 'A' || usuarioC.tipo_usuario == 'S'"> Tipo Usuario: {{ usuarioC.tipo_usuario }}</h3>
+                    </div>
+                </div>
+                
+                
+               
+                <div class="row mb-2 detallesUsuarioPrincipal">
+                    <div class="col contenedorEquipoSeleccionado">
+                        <h3 class="mb-2 detallesUsuarioPrincipal">Equipo Seleccionado:  </h3>
+                        <a [routerLink]="['/DetallesEquipo', { nombreEquipo: usuarioC.equipo_nombre }]" *ngIf="usuarioC.equipo_nombre">    
+                            <img title="{{ equiposElegido.equipo_nombre }}" class="escudoEquipo imagen-animada" src="{{ equiposElegido.escudo_equipo }}">
+                        </a>
+
+                        <h3 class="mb-2 detallesUsuarioPrincipal" *ngIf="!usuarioC.equipo_nombre">No seleccionado</h3>
+
+                        <a class="nav-link" [routerLink]="['/ElegirClub']"><button class="button cancelar" name="Detalles">Cambiar Equipo</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <button class="btn btn-info" name="Editar" (click)="openModal(usuarioC)"name="Editar" *ngIf="usuarioC">Editar Datos</button>
+        </div>
+        <div class="row tituloPerfil mb-4">
+            <div class="col headingDetalles"><h3>Detalles Usuario</h3></div>
+        </div>
+        <div class="detallesUsuario">
+            <h4 class="tituloDetallesUsuario">Nombre:</h4> <p class="contenidoDetallesUsuario">{{ usuarioC.nombre }}</p>
+        </div>
+        <div class="detallesUsuario">
+            <h4 class="tituloDetallesUsuario">Apellidos:</h4><p class="contenidoDetallesUsuario"> {{ usuarioC.apellidos }}</p>
+        </div>
+        <div class="detallesUsuario">
+            <h4 class="tituloDetallesUsuario">Email:</h4><p class="contenidoDetallesUsuario"> {{ usuarioC.email }}</p>
+        </div>
+    </div>
+</div>
+
+
+<app-editar-usuario *ngIf="usuarioSeleccionado" [usuario]="usuarioSeleccionado" (close)="closeModal($event)"></app-editar-usuario>
+  
+
+

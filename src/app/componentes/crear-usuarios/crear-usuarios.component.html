@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="espacio">
+    <form action="" class="form" (ngSubmit)="onSubmit()">
+      <p class="title">Registro </p>
+        <div class="row">
+          <div class="col">
+          <label>
+            <input [(ngModel)]="usu.nombre" required="" class="input" type="text" name="nombre" id="nombre" placeholder="Nombre">
+              <span>Nombre</span>
+          </label>
+        </div>
+        <div class="col">
+          <label>
+            <input [(ngModel)]="usu.apellidos" required="" class="input" type="text" name="apellidos" id="apellidos" placeholder="Apellidos">
+              <span>Apellidos</span>
+          </label>
+        </div>
+        </div>  
+      
+      <label>
+        <input [(ngModel)]="usu.username" required="" class="input" type="text" name="username" id="username" placeholder="Username">  
+        <span>Usuario</span>
+      </label>
+
+      <label>
+          <input [(ngModel)]="usu.email" required="" class="input" type="email" name="email" id="email" placeholder="Email">
+          <span>Email</span>
+      </label> 
+          
+      <label>
+        <input [(ngModel)]="usu.password" required="" class="input" type="password" name="password" id="password" placeholder="Contraseña">
+          <span>Contraseña</span>
+      </label>
+      <label>
+        <input [(ngModel)]="passwordConfirmacion" required="" class="input" type="password" name="passwordConfirmacion" id="passwordConfirmacion" placeholder="Confirmar Contraseña">
+          <span>Confirmar Contraseña</span>
+      </label>
+      <input class="login-button" type="submit" value="Crear Cuenta">
+    </form>
+  </div>
+</div>

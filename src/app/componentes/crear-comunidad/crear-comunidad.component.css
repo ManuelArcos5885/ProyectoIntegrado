@@ -1,0 +1,9 @@
+.container{
+    background-color:rgba(255, 255, 255, 0.767);
+    padding: 100px;
+    font-size: 22px;
+}
+
+.espacio{
+    min-height: calc(100vh - 50px - 100px);
+}

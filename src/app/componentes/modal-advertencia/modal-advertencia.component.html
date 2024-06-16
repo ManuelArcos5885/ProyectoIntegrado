@@ -1,0 +1,24 @@
+<div class="modal" id="advertenciaModal">
+    <div class="modal-content">
+        
+      <span class="close" (click)="closeModal()"><button class="button borrar">X</button></span>
+        <div class="container">
+            <div class="containerLogin my-5">
+                <div class="heading">ADVERTENCIA</div>
+
+                <div>
+                    {{mensajePasado}}
+                </div>
+                <div class="modal-footer">
+                    <button class="button cancelar" (click)="closeModal()">
+                        Cancelar
+                    </button>
+                    <button class="button borrar" (click)="confirmar()">
+                        Borrar
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

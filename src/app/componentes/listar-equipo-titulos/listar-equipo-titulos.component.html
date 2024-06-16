@@ -1,0 +1,25 @@
+<div *ngIf="equipoTitulos && equipoTitulos.equipo_nombre"><h1 class="cabeceraTitulo">Títulos del {{equipoTitulos.equipo_nombre}}</h1></div>
+<div>
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>Logo</th>
+                <th>Nombre Competición</th>
+                <th>Cantidad</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngIf="titulos.length === 0">
+                <tr><td colspan="3" class="importante d-flex justify-content-center">No tiene títulos</td></tr>
+            </ng-container>
+            <ng-container *ngFor="let titulo of titulos; let i = index">
+                <tr>
+                    <td><img src="{{ titulo.tituloLogo }}"></td>
+                    <td class="importante">{{ titulo.tituloNombre }}</td>
+                    <td class="importante">{{ titulosGanador[i].temporada }}</td>
+                    
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,37 @@
+<div class="container mt-5 espacio">
+    <div class="parent col-11">
+        <div class="card">
+            <div class="glass"></div>
+            <div class="row contenido">
+                
+
+                <div class="col contenedorEscudo" [routerLink]="['/DetallesEquipo', { nombreEquipo: equipoObtenido.equipo_nombre }]">
+                    <img src="{{equipoObtenido.escudo_equipo}}" class="escudoEquipo" alt="Escudo del Equipo">
+                    <div>{{equipoObtenido.equipo_nombre_completo}}</div>
+                </div>
+                
+
+                <div class="col contenedorEscudo">    
+                    <div class="col" [routerLink]= "['/ListarEquiposComunidad', comunidadObtenida.comunidad_nombre]">
+                        <img src="{{comunidadObtenida.comunidad_bandera}}" class="bandera" alt="Bandera de la Comunidad">
+                        <div>{{comunidadObtenida.comunidad_nombre}}</div>
+                    </div>
+                </div>
+
+                <div class="col contenedorEscudo" [routerLink]= "['/ListarEquiposComunidad', comunidadObtenida.comunidad_nombre]">
+                    <img src="{{comunidadObtenida.comunidad_escudo}}" class="escudoComunidad" alt="Escudo de la Comunidad">
+                    <div>Escudo de {{comunidadObtenida.comunidad_nombre}}</div>
+                </div>
+
+                <div class="col contenedorEscudo" [routerLink]= "['/ListarEquiposComunidad', comunidadObtenida.comunidad_nombre, equipoObtenido.ciudad_nombre]">
+                    <img src="{{equipoObtenido.ciudad_bandera}}" class="bandera" alt="Bandera de la Ciudad">
+                    <div>Bandera Ciudad de {{equipoObtenido.ciudad_nombre}}</div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>

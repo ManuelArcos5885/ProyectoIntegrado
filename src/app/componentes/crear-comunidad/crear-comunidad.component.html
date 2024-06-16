@@ -1,0 +1,12 @@
+<div class="titulo"><h2>¡crear comunidad works!</h2></div>
+<div class="container espacio">
+    <form (ngSubmit)="onSubmit()">
+        Nombre:<input type="text" id="comunidad_nombre" name="comunidad_nombre" [(ngModel)]="comunidad.comunidad_nombre"><br>
+        Bandera:<input type="file" id="bandera" name="comunidad_bandera" [(ngModel)]="comunidad.comunidad_bandera" (change)="onFileSelected($event,'Bandera')">
+        <img [src]="imageUrlBandera" *ngIf="imageUrlBandera" width="250" height="200" alt="Vista previa">
+        <br>
+        Escudo:<input type="file" id="escudo" name="comunidad_escudo" [(ngModel)]="comunidad.comunidad_escudo" (change)="onFileSelected($event,'Escudo')">
+        <img [src]="imageUrlEscudo" *ngIf="imageUrlEscudo" width="200" height="250" alt="Vista previa"><br><br>
+        <button class="btn btn-success">Guardar</button>
+    </form> 
+</div>

@@ -1,0 +1,29 @@
+<div class="modal" id="editarEquipacionModal">
+    <div class="modal-content">
+      <span class="close" (click)="closeModal()">&times;</span>
+        <div class="container">
+            <div class="containerLogin espacio my-5">
+                <div class="heading">Editar Equipación</div>
+                <form action="" class="form" (ngSubmit)="onSubmit()">
+                    <div class="row">
+                        <div class="col-8">
+                            <input [(ngModel)]="equipo.equipo_equipacion_primera" required="" class="input" type="file" name="equipacionPrimera" id="equipacionPrimera" placeholder="Equipación Primera" accept="image/*" (change)="onFileSelected($event, 'primera')">
+                        </div>
+                        <div class="col">
+                            <img *ngIf="equipo.equipo_equipacion_primera" class="equipacion" [src]="equipo.equipo_equipacion_primera" alt="Equipación Primera">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-8">
+                            <input [(ngModel)]="equipo.equipo_equipacion_segunda" required="" class="input" type="file" name="equipacionSegunda" id="equipacionSegunda" placeholder="Equipación Segunda" accept="image/*" (change)="onFileSelected($event, 'segunda')">
+                        </div>
+                        <div class="col">         
+                            <img *ngIf="equipo.equipo_equipacion_segunda" class="equipacion" [src]="equipo.equipo_equipacion_segunda" alt="Equipación Segunda">
+                        </div>
+                    </div>
+                    <input class="login-button" type="submit" value="Guardar Cambios">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

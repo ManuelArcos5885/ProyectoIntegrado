@@ -1,0 +1,32 @@
+<div class="titulo my-4 d-flex justify-content-between align-items-center">
+    <h3>ELIGE EQUIPO</h3>
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+            <h4>Division</h4>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li><a class="dropdown-item" (click)="actualizarDivision('Primera')">Primera</a></li>
+            <li><a class="dropdown-item" (click)="actualizarDivision('Segunda')">Segunda</a></li>
+            <li><a class="dropdown-item" (click)="actualizarDivision('Tercera')">Tercera</a></li>
+            <li><a class="dropdown-item" (click)="actualizarDivision('Otros')">Otros</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="parent equipoSeleccionar mb-3 col-7 col-md-6 col-lg-3" style="max-width: 540px;" *ngFor="let equipo of equipos">
+            <div [ngClass]="{'cardEquipoSelecionado': equipo.equipo_nombre === usuarioC.equipo_nombre}"class="card">
+                <div class="glass"></div>
+                <div class="contenido">
+                    <div class="contenedorEscudo">
+                        <img src="{{equipo.escudo_equipo}}" class="escudo imagen-animada" title="{{ equipo.equipo_nombre}}" (click)="elegirEquipo(equipo)">
+                    </div>
+                    <div class="content">
+                        <span class="title">{{equipo.equipo_nombre}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

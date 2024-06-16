@@ -1,0 +1,50 @@
+<div class="container" *ngIf="equiposComunidades && equiposComunidades.length > 0 && comunidadEquipo"> <!-- Utilizando *ngIf -->
+    <div class="row">
+        <table class="table col-10">
+            <thead class="table-dark">
+                <tr>
+                    <th>Nombre Equipo</th>
+                    <th>Escudo Equipo</th>
+                    <th>Comunidad Autonoma</th>
+                    <th>Bandera Comunidad</th>
+                    <th>Escudo Comunidad</th>
+                    <th>Nombre Ciudad</th>
+                    <th>Bandera Ciudad</th>
+                    <th *ngIf="usuarioC && (usuarioC.tipo_usuario == 'A' || usuarioC.tipo_usuario == 'S')">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr *ngFor="let equipo of equiposComunidades" class="equiposConComunidad">
+                    <td class="importante" [routerLink]="['/DetallesEquipo', { nombreEquipo: equipo.equipo_nombre }]">{{ equipo.equipo_nombre }}</td>
+                    <td>
+                        <img src="{{equipo.escudo_equipo}}" class="escudoEquipo" title="{{ equipo.equipo_nombre }}" [routerLink]="['/DetallesEquipo', { nombreEquipo: equipo.equipo_nombre }]">
+                    </td>
+                    <td class="importante" [routerLink]= "['/ListarEquiposComunidad', comunidadEquipo.comunidad_nombre]">{{ comunidadEquipo.comunidad_nombre }}</td>
+                    <td>
+                        <img src="{{comunidadEquipo.comunidad_bandera}}" class="bandera" title="{{ comunidadEquipo.comunidad_nombre }}" [routerLink]= "['/ListarEquiposComunidad', comunidadEquipo.comunidad_nombre]">
+                    </td>
+                    <td>
+                        <img src="{{comunidadEquipo.comunidad_escudo}}" class="bandera" title="Escudo de {{ comunidadEquipo.comunidad_nombre }}">
+                        
+                    </td>
+                    <td class="importante" [routerLink]= "['/ListarEquiposComunidad', comunidadEquipo.comunidad_nombre, equipo.ciudad_nombre]">{{ equipo.ciudad_nombre }}</td>
+                    <td>
+                        <img src="{{equipo.ciudad_bandera}}" class="bandera" title="{{ equipo.ciudad_nombre }}" [routerLink]= "['/ListarEquiposComunidad', comunidadEquipo.comunidad_nombre, equipo.ciudad_nombre]">
+                    </td>
+
+                    <td *ngIf="usuarioC && (usuarioC.tipo_usuario == 'A' || usuarioC.tipo_usuario == 'S')">
+                        <button class="btn btn-info" name="Editar" name="Editar" (click)="openModal(equipo)">Editar</button>
+                        <button class="btn btn-danger" name="Borrar" *ngIf="usuarioC && usuarioC.tipo_usuario == 'S'">Borrar</button>
+                    </td>
+                    
+                </tr>
+                
+                
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<app-editar-equipo *ngIf="equipoSeleccionado" [equipo]="equipoSeleccionado" (close)="closeModal($event)"></app-editar-equipo>

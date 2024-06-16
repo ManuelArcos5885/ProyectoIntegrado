@@ -1,0 +1,61 @@
+<div class="container" *ngFor="let club of equipoPasado">
+  <header class="nombreEquipo" [ngStyle]="{'background-color': club.color_secundario}">
+    <h1>{{ club.equipo_nombre_completo }}</h1>
+    <span *ngIf="usuarioC && (usuarioC.tipo_usuario == 'A' || usuarioC.tipo_usuario == 'S')"><button class="btn btn-info" name="Editar" name="Editar" (click)="openModal(club)">Editar Datos {{ club.equipo_nombre}}</button></span>
+  </header>
+  <section class="club-info" [ngStyle]="{'background-color': club.color_primario}">
+    <img src="{{ club.escudo_equipo }}" alt="Logo del Club" class="logo">
+    <div class="row">
+      <div class="info col col-lg-6">
+        <h2>Fundación: </h2>
+        <p class="datosClub">{{ club.fecha_fundacion }}</p>
+      </div>
+      <div class="info enlaceDetalels col col-lg-6" [routerLink]= "['/ListarEquipos', club.division_actual]">
+        <h2>División Actual: </h2>
+        <p class="datosClub" *ngIf="divisionActualLogo && club.division_actual"><img src="{{divisionActualLogo}}" alt="Escudo de la División" class="escudo">{{club.division_actual}}</p>
+      </div>
+      <div class="info col col-lg-6">
+        <h2>Títulos: </h2>
+        <p class="datosClub"><img src="../../../assets/imagenes_proyecto/otros/Laliga_Trophy.png" class="Trofeo" alt="Trofeo">x{{ numeroTitulos }}</p>
+      </div>
+      <div class="info enlaceDetalels col col-lg-6" [routerLink]= "['/ListarEquiposComunidad', club.comunidad_nombre]">
+        <h2>Comunidad: </h2>
+        <p class="datosClub" *ngIf="comunidadObtenida"><img src="{{comunidadObtenida.comunidad_bandera}}" alt="Bandera de la Comunidad" class="bandera">{{comunidadObtenida.comunidad_nombre}}</p>
+        
+      </div>
+    </div>
+  </section>
+  <nav class="datos-nav" [ngStyle]="{'background-color': club.color_secundario}">
+    <div class="row">
+      <div class="col-lg-3" (click)="mostrarDatos('equipacion')">
+        Equipación
+      </div>
+      <div class="col-lg-2" (click)="mostrarDatos('partidos')">
+        Partidos
+      </div>
+      <div class="col-lg-2" (click)="mostrarDatos('goles')">
+        Goles
+      </div>
+      <div class="col-lg-2" (click)="mostrarDatos('titulos')">
+        Títulos
+      </div>
+      <div class="col-lg-3" (click)="mostrarDatos('estadio')">
+        Estadio y Localidad
+      </div>
+    </div>
+  </nav>
+
+
+  <equipoSeleccionadoGoles *ngIf="mostrarGoles" [equipoPasado]="equipoPasado"></equipoSeleccionadoGoles>
+  
+  <equiposSeleccionadoTitulos *ngIf="mostrarTitulos" [equipoPasado]="equipoPasado"></equiposSeleccionadoTitulos>
+  
+  <equiposSeleccionadoEstadio *ngIf="mostrarEstadio" [equipoPasado]="equipoPasado"></equiposSeleccionadoEstadio>
+  
+  <equiposSeleccionadoPartidos *ngIf="mostrarPartido" [equipoPasado]="equipoPasado"></equiposSeleccionadoPartidos>
+
+  <equiposSeleccionadoEquipacion *ngIf="mostrarEquipacion" [equipoPasado]="equipoPasado"></equiposSeleccionadoEquipacion>
+</div>
+
+
+<app-editar-equipo *ngIf="equipoSeleccionado" [equipo]="equipoSeleccionado" (close)="closeModal($event)"></app-editar-equipo>

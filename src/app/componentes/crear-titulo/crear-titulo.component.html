@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="containerLogin espacio my-5">
+        <div class="heading">Crear Titulo</div>
+        <form class="form" (ngSubmit)="onSubmit()">
+            <input [(ngModel)]="titulo.tituloNombre" required="" class="input" type="text" name="nombre" id="nombre" placeholder="Nombre Titulo">
+
+            <input [(ngModel)]="titulo.tituloLogo" required="" class="input" type="file" name="logo" id="logo" placeholder="Logo Titulo" accept="image/*" (change)="onFileSelected($event)">
+            <img [src]="imageUrlLogo" *ngIf="imageUrlLogo" width="250" height="200" alt="Vista previa"><br>
+            
+            
+            <input class="login-button" type="submit" value="Crear Titulo">
+        </form>
+
+    </div>
+
+</div>

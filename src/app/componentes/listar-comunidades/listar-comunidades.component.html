@@ -1,0 +1,27 @@
+<div class="container" *ngIf="comunidades && comunidades.length > 0"> <!-- Utilizando *ngIf -->
+    <table class="table table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Nombre</th>
+                <th>Bandera</th>
+                <th>Escudo</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr *ngFor="let comunidad of comunidades">
+                <td class="importante">{{ comunidad.comunidad_nombre }}</td>
+                <td>
+                    <img src="{{comunidad.comunidad_bandera}}" class="comunidadBandera" title="{{ comunidad.comunidad_nombre }}">
+                </td>
+                <td>
+                    <img src="{{comunidad.comunidad_escudo}}" class="comunidadEscudo" title="Escudo de {{ comunidad.comunidad_nombre }}">
+                    
+                </td>
+                
+            </tr>
+            
+            
+        </tbody>
+    </table>
+</div>

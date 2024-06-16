@@ -1,0 +1,19 @@
+img{
+    width: 100px;
+}
+
+.botonesTitulos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.botonEquipos {
+    width: 150px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.botonEquipos:hover {
+    transform: scale(1.1);
+}

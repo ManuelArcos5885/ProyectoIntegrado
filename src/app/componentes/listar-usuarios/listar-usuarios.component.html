@@ -1,0 +1,38 @@
+<div class="container espacio">
+    <table class="table table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>username</th>
+                <th>email</th>
+                <th>contraseña</th>
+                <th>tipo</th>
+                <th *ngIf="usuarioC && (usuarioC.tipo_usuario == 'A' || usuarioC.tipo_usuario == 'S')">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr *ngFor="let usuario of usuarios">
+                <td>{{usuario.nombre}}</td>
+                <td>{{usuario.apellidos}}</td>
+                <td>{{usuario.username}}</td>
+                <td>{{usuario.email}}</td>
+                <td>{{usuario.password}}</td>
+                <td>{{usuario.tipo_usuario}}</td>
+                <td *ngIf="usuarioC && (usuarioC.tipo_usuario == 'A' || usuarioC.tipo_usuario == 'S')">
+                    <button class="btn btn-info" name="Editar" (click)="openModal(usuario)"name="Editar" *ngIf="usuario.tipo_usuario != 'A' || (usuarioC && usuarioC.tipo_usuario == 'S')">Editar</button>
+                    <button class="btn btn-danger" name="Borrar" *ngIf="usuarioC && usuarioC.tipo_usuario == 'S'">Borrar</button>
+                </td>
+                
+            </tr>
+            
+        </tbody>
+    </table>
+</div>
+
+
+<app-editar-usuario *ngIf="usuarioSeleccionado" [usuario]="usuarioSeleccionado" (close)="closeModal($event)"></app-editar-usuario>
+  
+
+

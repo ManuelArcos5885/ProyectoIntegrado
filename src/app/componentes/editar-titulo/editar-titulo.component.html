@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="container espacio my-5">
+        <div class="modal-content">
+            <div class="heading">Editar Ganador</div>
+            <form (ngSubmit)="onSubmit()">
+
+                <div class="col">
+                    <label>
+                        <select name="equipo" [(ngModel)]="ganadorEditar.equipo" class="input">
+                            <option *ngFor="let equipo of equipos" [value]="equipo.idequipos">{{ equipo.equipo_nombre }}</option>
+                        </select>
+                        <span>Equipo</span>
+                    </label>
+                </div>
+                
+                <div class="row">
+                    <div class="col">
+                        <label>
+                            <select name="titulo" [(ngModel)]="ganadorEditar.titulo" class="input">
+                                <option *ngFor="let titulo of titulos" [value]="titulo.idtitulo">{{ titulo.tituloNombre }}</option>
+                            </select>
+                            <span>Título</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label>
+                            <input type="text" name="temporada" [(ngModel)]="ganadorEditar.temporada" class="input">
+                            <span>Temporada</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="temporada">Temporada:</label>
+                    <input type="text" name="temporada" [(ngModel)]="ganadorEditar.temporada" class="input">
+                </div>
+
+                <button class="btn btn-success" type="submit">Guardar</button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+<div class="mt-3" [ngClass]="{'fondoSegunda': titulo === 'Equipos 2º Division Española', 'fondoPrimera': titulo === 'Equipos 1º Division Española', 'fondoTercera': titulo === 'Equipos Primera RFEF'}"><h1>{{ titulo }}</h1></div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+
+        </div>
+        <div class="col divisiones">
+            
+            <form class="d-inline botonesDivision" (ngSubmit)="onSubmit('Primera')">
+                <img src="../../../assets/imagenes_proyecto/otros/logo_primera.png" class="logo"><button type="submit" class="button primera" name="Primera" (mouseover)="aumentarTamanio($event)" (mouseout)="reducirTamanio($event)">1º Division</button>
+            </form>
+            
+            <form class="d-inline botonesDivision" (ngSubmit)="onSubmit('Segunda')">
+                <img src="../../../assets/imagenes_proyecto/otros/logo_segunda.png" class="logo"><button type="submit" class="button segunda" name="Segunda" (mouseover)="aumentarTamanio($event)" (mouseout)="reducirTamanio($event)">2º Division</button>
+            </form>
+            
+            <form class="d-inline botonesDivision" (ngSubmit)="onSubmit('Tercera')">
+                <img src="../../../assets/imagenes_proyecto/otros/Logo_tercera.png" class="logo"><button type="submit" class="button tercera" name="Tercera" (mouseover)="aumentarTamanio($event)" (mouseout)="reducirTamanio($event)">Primera RFEF</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="row contenedorEquipos">
+        <div class="card mb-3 col-11" style="max-width: 540px;" *ngFor="let equipo of equipos" [ngClass]="{'cartaSegunda': titulo === 'Equipos 2º Division Española', 'cartaPrimera': titulo === 'Equipos 1º Division Española', 'cartaTercera': titulo === 'Equipos Primera RFEF'}">
+            <div class="row g-0">
+                <div class="col-md-4 d-flex align-items-center justify-content-center celdaEscudo" [ngClass]="{'escudoSegunda': titulo === 'Equipos 2º Division Española', 'escudoPrimera': titulo === 'Equipos 1º Division Española', 'escudoTercera': titulo === 'Equipos Primera RFEF'}">
+                    <a class="nav-link" [routerLink]="['/DetallesEquipo', { nombreEquipo: equipo.equipo_nombre }]"><img src="{{equipo.escudo_equipo}}" class="escudo imagen-animada" title="{{ equipo.equipo_nombre}}"></a>
+                    
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title importante">{{ equipo.equipo_nombre}}</h5>
+                        <p class="card-text"><a class="nav-link enlaceCiudad" [routerLink]="['/CiudadEquipo', { nombreEquipo: equipo.equipo_nombre }]"><img src="{{ equipo.ciudad_bandera}}" class="banderaCiudad" title="{{ equipo.ciudad_nombre}}">{{ equipo.ciudad_nombre}}</a></p>
+                            <div class="contenedorBotones">
+                                <div class="col">
+                                    <a class="nav-link" [routerLink]="['/DetallesEquipo', { nombreEquipo: equipo.equipo_nombre }]"><button class="button cancelar" name="Detalles" (mouseover)="aumentarTamanio($event)" (mouseout)="reducirTamanio($event)" *ngIf="isAuthenticated()">Detalles</button></a>
+                                    
+                                </div>
+                                <div class="col" *ngIf="isAuthenticated() && usuarioC && usuarioC.tipo_usuario && usuarioC.tipo_usuario == 'S'">
+                                    <button class="button borrar" name="Borrar" (mouseover)="aumentarTamanio($event)" (mouseout)="reducirTamanio($event)" (click)="confirmarBorrado(equipo.equipo_nombre)">Borrar</button>
+                                    
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

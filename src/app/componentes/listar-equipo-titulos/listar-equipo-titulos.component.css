@@ -1,0 +1,10 @@
+.cabeceraTitulo{
+    background-image: linear-gradient(to right, #ff0000, #cd0000);
+    padding: 10px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+img{
+    width: 100px;
+}

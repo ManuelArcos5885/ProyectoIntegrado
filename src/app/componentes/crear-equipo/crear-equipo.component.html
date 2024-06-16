@@ -1,0 +1,34 @@
+<div class="titulo"><h2>¡crear equipo!</h2></div>
+<div class="container espacio">
+    <form (ngSubmit)="onSubmit()">
+        Nombre: <input type="text" id="nombre" name="nombre" [(ngModel)]="equipo.equipo_nombre"><br>
+
+        Comunidad Autónoma:
+        <select name="comunidad_nombre" [(ngModel)]="equipo.comunidad_nombre">
+            <option *ngFor="let comunidad of comunidades" value="comunidad.comunidad_nombre">{{ comunidad.comunidad_nombre }}</option>
+        </select><br>
+
+        Escudo: <input type="file" id="Escudo" name="Escudo" (change)="onFileSelected($event, 'Escudo')" accept="image/*" [(ngModel)]="equipo.escudo_equipo">
+        <img [src]="imageUrlEscudo" *ngIf="imageUrlEscudo" width="250" height="200" alt="Vista previa"><br>
+        
+        Año de Fundación: <input type="number" id="fecha_fundacion" name="fecha_fundacion" [(ngModel)]="equipo.fecha_fundacion"><br>
+        Ciudad: <input type="text" id="ciudad" name="ciudad" [(ngModel)]="equipo.ciudad_nombre"><br>
+
+        Bandera de la Ciudad: <input type="file" id="Bandera" name="Bandera" (change)="onFileSelected($event, 'Bandera')" accept="image/*" [(ngModel)]="equipo.ciudad_bandera">
+        <img [src]="imageUrlBandera" *ngIf="imageUrlBandera" width="250" height="200" alt="Vista previa"><br>
+
+        Partidos Ganados: <input type="number" id="partidos_ganados" name="partidos_ganados" [(ngModel)]="equipo.partidos_ganados"><br>
+        Partidos Empatados: <input type="number" id="partidos_empatados" name="partidos_empatados" [(ngModel)]="equipo.partidos_empatados"><br>
+        Partidos Perdidos: <input type="number" id="partidos_perdidos" name="partidos_perdidos" [(ngModel)]="equipo.partidos_perdidos"><br>
+        Puntos Históricos: <input type="number" id="puntos_historico" name="puntos_historico" [(ngModel)]="equipo.puntos_historico"><br>
+
+        División Actual: 
+        <select name="division_actual" [(ngModel)]="equipo.division_actual">
+            <option value="Primera">Primera</option>
+            <option value="Segunda">Segunda</option>
+            <option value="Tercera">Tercera</option>
+        </select><br>
+
+        <button class="btn btn-success" type="submit">Guardar</button>
+    </form>
+</div>

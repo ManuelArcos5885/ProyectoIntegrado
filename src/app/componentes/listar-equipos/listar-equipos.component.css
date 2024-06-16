@@ -1,0 +1,132 @@
+
+.botonesDivision{
+    margin: 20px;
+    transition: transform 0.3s ease; /* Agrega una transición suave de 0.3 segundos */
+      
+    
+}
+
+.contenedorBotones{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.primera{
+    background-color: rgb(213, 0, 0);
+}
+.segunda{
+    background-color: rgb(25, 209, 233);
+}
+
+.tercera{
+    background-color: rgb(0, 137, 36);
+}
+.divisiones{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.logo{
+    width: 70px;
+    height: 70px;
+}
+
+.card{
+    margin-right: 10px;
+    margin-bottom: 20px;
+    height: 300px;
+    vertical-align: middle;
+    
+}
+
+.contenedorEquipos{
+    display: flex;
+    justify-content: center;
+}
+
+
+.fondoPrimera{
+    background-image: linear-gradient(to right, #ff0000, #cd0000);
+    padding: 10px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.fondoSegunda{
+    background-image: linear-gradient(to right, #00beff, #00769e);
+    padding: 10px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.fondoTercera{
+    background-image: linear-gradient(to right, #008f39, #006829);
+    padding: 10px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+
+.cartaPrimera{
+    background-image: linear-gradient(to right, #080808be, #0a0000);
+}
+.cartaSegunda{
+    background-image: linear-gradient(to right, #0d7a9eb8,#004f6a );
+    
+}
+.cartaTercera{
+    background-image: linear-gradient(to right, #0a813ad9,#004a1d);
+}
+
+.escudoPrimera{
+    background-color: #41414163;
+}
+
+.escudoSegunda{
+    background-color: rgba(39, 173, 218, 0.834);
+}
+
+.escudoTercera{
+    background-color: #15a950cc;
+}
+
+.card{
+    padding: 10px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.escudo{
+    width: 150px;
+    max-height: 250px;
+}
+
+.banderaCiudad{
+    width: 150px;
+    margin-right: 10px;
+}
+
+.imagen-animada {
+    transition: transform 0.5s ease; /* Establece una transición suave */
+}
+
+.imagen-animada:hover {
+    transform: scale(1.2); /* Ajusta la escala de la imagen al pasar el ratón sobre ella */
+
+}
+
+.celdaEscudo{
+    background-color: transparent;
+    transition: background-color 0.5s ease;
+}
+.celdaEscudo:hover{
+    background-color: rgba(255, 215, 17, 0.586);
+    
+}
+
+
+.enlaceCiudad{
+    color: white;
+}

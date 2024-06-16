@@ -1,0 +1,89 @@
+.container {
+  max-width: 900px;
+  margin: auto;
+}
+
+.perfil {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.iconoUsuario {
+  font-size: 80px;
+  color: #007bff;
+}
+
+.detallesUsuario{
+  display: flex;
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.heading {
+  text-align: center;
+  font-weight: 800;
+  font-size: 30px;
+  color: white;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 20);
+}
+
+.headingDetalles{
+  padding: 10px;
+  text-align: center;
+  font-weight: 800;
+  font-size: 30px;
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 20);
+}
+
+.tituloPerfil{
+  background-color: #0026E6;
+}
+
+.detallesUsuarioPrincipal{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.detallesUsuarioPrincipalNombre{
+  font-weight: 900;
+}
+
+.escudoEquipo{
+  margin-left: 20px;
+  width: 80px;
+
+}
+
+.imagen-animada {
+  transition: transform 0.5s ease; /* Establece una transición suave */
+}
+
+.imagen-animada:hover {
+  transform: scale(1.2); /* Ajusta la escala de la imagen al pasar el ratón sobre ella */
+
+}
+
+
+.datosGeneralesUsuario{
+  background-color: #007bff;
+}
+
+.tituloDetallesUsuario{
+  margin-right: 20px;
+}
+
+.contenidoDetallesUsuario{
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.contenedorEquipoSeleccionado{
+  display: flex;
+  align-items: center;
+}

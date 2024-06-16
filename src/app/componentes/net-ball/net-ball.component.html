@@ -1,0 +1,129 @@
+<div class="titulo my-4 text-left d-flex align-items-center justify-content-between">
+    <span class="d-flex align-items-center">
+        <img src="../../../assets/imagenes_proyecto/otros/logoNetBall.png" class="logo">
+        <h3 class="tituloPrincipal">NetBall</h3>
+    </span>
+
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false" data-bs-toggle="dropdown">
+            {{ selectedCanal }}
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li *ngFor="let canal of canales" [class.d-none]="esUsuarioMiembro(canal)">
+                <a class="dropdown-item" (click)="seleccionarCanal(canal.nombreCanal)">{{ canal.nombreCanal }}</a>
+            </li>
+        </ul>
+    </div>
+
+    <span *ngIf="usuarioC"><button class="button cancelar" name="Editar" name="Editar" (click)="openModal(usuarioC)">Crear Canal</button></span>
+
+
+</div>
+
+<div class="container">
+    <div class="row mb-3">
+        <div class="col">
+            <button *ngIf="usuarioC" (click)="abrirCreadorComentario()" class="btn btn-primary">{{botonRedactarMensaje}}</button>
+        </div>
+        <!--<div class="col">
+            <form class="form">
+                <label for="search">
+                    <input required="" autocomplete="off" placeholder="Buscar" id="search" type="text">
+                    <div class="icon">
+                        <svg stroke-width="2" stroke="currentColor" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="swap-on">
+                            <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linejoin="round" stroke-linecap="round"></path>
+                        </svg>
+                        <svg stroke-width="2" stroke="currentColor" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="swap-off">
+                            <path d="M10 19l-7-7m0 0l7-7m-7 7h18" stroke-linejoin="round" stroke-linecap="round"></path>
+                        </svg>
+                    </div>
+                    <button type="reset" class="close-btn">
+                        <svg viewBox="0 0 20 20" class="h-5 w-5" xmlns="http://www.w3.org/2000/svg">
+                            <path clip-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" fill-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                </label>
+            </form>
+            
+
+        </div>-->
+    </div>
+
+    <div class="row mt-3 redactarComentario" *ngIf="escribirComentario">
+        <div class="col-8">
+            Mensaje: <textarea [(ngModel)]="comentarioNuevo.mensaje" class="form-control" placeholder="Escribe mensaje"></textarea>
+        </div>
+        <div class="col">
+            Tema:
+            <select [(ngModel)]="comentarioNuevo.tema" class="form-control">
+                <option *ngFor="let tema of temas" [value]="tema.tema_nombre">{{ tema.tema_nombre }}</option>
+              </select>
+        </div>
+        <button (click)="crearComentario()" class="btn btn-success mt-2">Enviar</button>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-9">
+            <h4 class="chat-global-title">CHAT {{selectedCanal}}</h4>
+            <div class="comments-section">
+                <div *ngFor="let comentario of comentariosConUsuario">
+                    <div class="comment-card" *ngIf="comentario.borrado != 1">
+                        <div class="comment-header">
+                            <span class="comment-user-icon">👤{{comentario.nombreUsuario}}</span>
+                            <span class="comment-title"></span>
+                            <span class="comment-date">{{comentario.fechaPublicacion}}</span>
+                        </div>
+                        <div class="comment-body">
+                            <p>{{comentario.mensaje}}</p>
+                        </div>
+                        <div class="comment-footer">
+                            <button *ngIf="usuarioC" class="btn btn-primary" (click)="mostrarRedactarRespuesta(comentario.idcomentario)">Responder</button>
+                            <button class="button borrar" *ngIf="usuarioC && (usuarioC.tipo_usuario == 'S' || usuarioC.tipo_usuario == 'A' || usuarioC.idusuarios == comentario.usuario)" name="Borrar" (click)="confirmarBorrado(comentario.idcomentario)">Borrar</button>
+                            <button class="btn btn-secondary" (click)="obtenerRespuestas(comentario.idcomentario)">Ver Respuestas</button>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3 redactarComentario" *ngIf="escribirRespuesta && respuestaNuevo.comentario == comentario.idcomentario">
+                        <div class="col">
+                            Mensaje: <textarea [(ngModel)]="respuestaNuevo.mensaje" class="form-control" placeholder="Escribe mensaje"></textarea>
+                        </div>
+                        <button (click)="crearRespuesta(comentario.idcomentario)" class="btn btn-success mt-2">Enviar</button>
+                    </div>
+
+                    <div class="respuestasComentario" *ngIf="respuestas && respuestas.length > 0 && comentario.idcomentario === respuestas[0].comentario">
+                        <h4 class="respuestasTitulo">RESPUESTAS</h4>
+                        <div *ngFor="let respuesta of respuestasConUsuairo" class="respuestas">
+                            <div class="comment-header">
+                                <span class="comment-user-icon">👤{{respuesta.nombreUsuario}}</span>
+                                <span class="comment-title"></span>
+                                <span class="comment-date">{{respuesta.fecha}}</span>
+                            </div>
+                            <div class="comment-body">
+                                <p>{{respuesta.mensaje}}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                
+
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="menu-fixed">
+                <div class="row d-flex justify-content-between">
+                    <h4>Temáticas</h4>
+                </div>
+                <ul class="list-group">
+                    <li class="list-group-item my-2" (click)="seleccionarTema(tema.tema_nombre)" *ngFor="let tema of temas" [ngClass]="{'bg-primary text-white': selectedTema === tema.tema_nombre}">
+                        <a>{{ tema.tema_nombre }}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<app-crear-canal *ngIf="mostrarCrearCanal"  (close)="closeModal()"></app-crear-canal>

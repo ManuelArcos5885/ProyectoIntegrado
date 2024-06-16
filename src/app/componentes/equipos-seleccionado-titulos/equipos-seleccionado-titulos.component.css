@@ -1,0 +1,24 @@
+.escudoEquipo {
+    height: 100px;
+}
+
+.filaBotonesAdmin {
+    display: flex;
+    margin-top: 40px;
+}
+
+.botonEquipos {
+    width: 150px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.botonEquipos:hover {
+    transform: scale(1.1);
+}
+
+.botonesTitulos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

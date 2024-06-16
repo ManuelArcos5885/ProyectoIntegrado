@@ -1,0 +1,20 @@
+<div *ngFor="let equipo of equipoPasado" class="container">
+  <div class="filaBotonesAdmin">
+    <div class="col-2" *ngIf="usuarioC && (usuarioC.tipo_usuario == 'A' || usuarioC.tipo_usuario == 'S')">
+      <button class="btn btn-info" name="Detalles" (click)="openModal(equipo)">Editar Equipación</button>
+    </div>
+  </div>
+  <div class="row" *ngIf="equipo.equipo_equipacion_primera">
+    <div class="col-6">
+      <h3 class="nombreEquipo">EQUIPACION PRIMERA</h3>
+      <img class="equipacion" [src]="equipo.equipo_equipacion_primera" alt="Equipación Primera">
+    </div>
+    <div class="col-6">
+      <h3 class="nombreEquipo">EQUIPACION SECUNDARIA</h3>
+      <img class="equipacion" [src]="equipo.equipo_equipacion_segunda" alt="Equipación Segunda">
+    </div>
+  </div>
+</div>
+  
+<app-editar-equipacion *ngIf="equipoSeleccionado" [equipo]="equipoSeleccionado" (close)="closeModal($event)"></app-editar-equipacion>
+  

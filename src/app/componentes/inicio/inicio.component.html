@@ -1,0 +1,111 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col contenedorCarousel">
+      <div id="carouselInicioFervor" class="carouselInicio carousel slide col-11" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" class="buttonCarousel" data-bs-target="#carouselInicioFervor" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" class="buttonCarousel" data-bs-target="#carouselInicioFervor" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" class="buttonCarousel" data-bs-target="#carouselInicioFervor" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" class="buttonCarousel" data-bs-target="#carouselInicioFervor" data-bs-slide-to="3" aria-label="Slide 4"></button>
+          <button type="button" class="buttonCarousel" data-bs-target="#carouselInicioFervor" data-bs-slide-to="4" aria-label="Slide 5"></button>
+          <button type="button" class="buttonCarousel" data-bs-target="#carouselInicioFervor" data-bs-slide-to="5" aria-label="Slide 6"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <a [routerLink]="['/Login']"><img src="../../../assets/imagenes_proyecto/otros/carousel1.jpg" class="d-block w-100" alt="Imagen inicio"></a>
+          </div>
+          <div class="carousel-item">
+            <a [routerLink]="['/ListarEquipos/primera']"><img src="../../../assets/imagenes_proyecto/otros/carousel2.jpg" class="d-block w-100" alt="Primera divison Española"></a>
+          </div>
+          <div class="carousel-item">
+            <a [routerLink]="['/ListarTitulos']"><img src="../../../assets/imagenes_proyecto/otros/carousel3.jpg" class="d-block w-100" alt="La Copa del Rey"></a>
+          </div>
+          <div class="carousel-item">
+            <a [routerLink]="['/ChampionsLeague']"><img src="../../../assets/imagenes_proyecto/otros/carousel4.jpg" class="d-block w-100" alt="Logo de la Champions"></a>
+          </div>
+          <div class="carousel-item">
+            <a [routerLink]="['/NetBall']"><img src="../../../assets/imagenes_proyecto/otros/carousel5.jpg" class="d-block w-100" alt="La mano clarisima de Gerard Pique no pitada"></a>
+          </div>
+          <div class="carousel-item">
+            <a [routerLink]="['/NetBall']"><img src="../../../assets/imagenes_proyecto/otros/carousel6.jpg" class="d-block w-100" alt="Dos jugadores discutiendo en el banquillo"></a>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselInicioFervor" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselInicioFervor" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Siguiente</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row my-4 justify-content-between">
+    <div class="col-5">
+      <div class="inicioSesion" *ngIf="!usuarioC">
+        <div class="tituloInicioSesion mb-4">
+          <span><h3>Inicio Sesión</h3></span>
+        </div>
+        <div class="row justify-content-center">
+          <div class="row mb-3 d-flex justify-content-center">
+            <button type="button" class="btn botonInicioSesion mb-3" [routerLink]="['/Login']">Iniciar Sesión</button>
+          </div>
+          <div class="row mb-3 d-flex justify-content-center">
+            <button type="button" class="btn botonInicioSesion mb-3" [routerLink]="['/CrearUsuario']">Registrarse</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="ligasDisponibles">
+        <div class="ligasDisponiblesTitulos mb-5">
+          <h3>Ligas Disponibles</h3>
+        </div>
+        <div class="row justify-content-center container">
+          <div class="row mb-3 d-flex justify-content-center">
+            <a [routerLink]="['/ListarEquipos/primera']" class="col-12 col-md-4 d-flex align-items-center">
+              <img class="logoLiga mr-3" src="../../../assets/imagenes_proyecto/otros/laliga.png">
+              <span class="text-white font-size-lg">Primera División</span>
+            </a>
+          </div>
+          <div class="row mb-3 d-flex justify-content-center">
+            <a [routerLink]="['/ListarEquipos/segunda']" class="col-12 col-md-4 d-flex align-items-center">
+              <img class="logoLiga mr-3" src="../../../assets/imagenes_proyecto/otros/logo_segunda.png">
+              <span class="text-white font-size-lg">Segunda División</span>
+            </a>
+          </div>
+          <div class="row mb-3 d-flex justify-content-center">
+            <a [routerLink]="['/ListarEquipos/tercera']" class="col-12 col-md-4 d-flex align-items-center">
+              <img class="logoLiga mr-3" src="../../../assets/imagenes_proyecto/otros/Logo_tercera.png">
+              <span class="text-white font-size-lg">Primera RFEF</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-6">
+      <div class="noticiasRecientes">
+        <div class="tituloNoticiasRecientes mb-4">
+          <h3>Comentarios Recientes</h3>
+        </div>
+        <div class="container">
+          <div class="row comentariosRecientes" *ngFor="let comentario of comentariosConUsuario" [routerLink]="['/NetBall']">
+            <div class="col">
+              <img src="../../../assets/imagenes_proyecto/otros/{{comentario.tema}}.png" class="imagenComentario" alt="Comentario sobre {{comentario.tema}}">
+            </div>
+            <div class="col-9">
+              <div class="">
+                <h5 class="mt-0">{{comentario.tema}}</h5>
+                <p>{{comentario.mensaje}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+</div>
