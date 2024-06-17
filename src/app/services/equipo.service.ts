@@ -39,10 +39,6 @@ export class EquipoService {
     return this.httpClient.get<Equipo[]>(`${this.baseURL_equipo}/listartodosBorrado`);
   }
 
-  obtenerTodosEquiposMenos(equipoNombre:string): Observable<Equipo[]> {
-    return this.httpClient.get<Equipo[]>(`${this.baseURL_equipo}/listartodosMenos?equipoNombre=${equipoNombre}`);
-  }
-
   obtenerEquiposComunidad(comunidadNombre:string): Observable<Equipo[]> {
     console.log("NOMBRE COMUNIDAD: ");
     console.log(comunidadNombre);

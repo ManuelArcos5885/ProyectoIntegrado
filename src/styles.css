@@ -1,3 +1,38 @@
+@font-face {
+  font-family: 'Livvic';  /* Nombre de la fuente */
+  src: url('../src/assets/fonts/Livvic/Livvic-Bold.ttf') format('livvicBold'), /* Ruta relativa a los archivos de fuentes */
+       url('../src/assets/fonts/Livvic/Livvic-Regular.ttf') format('livvicRegular'); 
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'LibreBaskerville';  /* Nombre de la fuente */
+  src: url('../src/assets/fonts/Libre_Baskerville/LibreBaskerville-Bold.ttf') format('LibreBaskervilleBold'), /* Ruta relativa a los archivos de fuentes */
+       url('../src/assets/fonts/Libre_Baskerville/LibreBaskerville-Regular.ttf') format('LibreBaskervilleRegular'); 
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lato';  /* Nombre de la fuente */
+  src: url('../src/assets/fonts/Lato/Lato-Regular.ttf') format('LatoRegular'), /* Ruta relativa a los archivos de fuentes */
+       url('../src/assets/fonts/Lato/Lato-Bold.ttf') format('LatoBold'); 
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cabin';  /* Nombre de la fuente */
+  src: url('../src/assets/fonts/Cabin/Cabin-Italic-VariableFont_wdth\,wght.ttf') format('CabinItaliz'), /* Ruta relativa a los archivos de fuentes */
+       url('../src/assets/fonts/Cabin/Cabin-VariableFont_wdth\,wght.ttf') format('CabinVariable'); 
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+
 
 .ng-valid:not(form).ng-touched{
     border-left: 5px solid greenyellow;
@@ -57,10 +92,22 @@ table{
 }
 
 .importante{
-    font-size: 30px;
-    font-family: Roboto Condensed;
+    font-size: 24px;
+    font-family: 'LibreBaskerville';
+}
+.menosImportante{
+  font-size: 20px;
+  font-family: 'LibreBaskerville';
 }
 
+.tituloEspecial{
+  font-size: 40px;
+  font-family: 'Livvic';
+}
+.tituloMenosEspecial{
+  font-size: 36px;
+  font-family: 'Livvic';
+}
 
   
   
@@ -81,7 +128,9 @@ table{
   border: 3px solid #ffffff4d;
   outline: none;
   overflow: hidden;
-  font-size: 15px;
+  font-size: 20px;
+  font-family: 'LatoBold';
+
 }
 .cancelar{
   background-color: rgb(0 107 179);

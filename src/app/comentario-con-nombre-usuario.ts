@@ -17,5 +17,9 @@ export class ComentarioConNombreUsuario {
     tema:string;
 
     nombreUsuario:string;
+
+    nombreEquipo:string;
+
+    escudoEquipo:string;
     
 }

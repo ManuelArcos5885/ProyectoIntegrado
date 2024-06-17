@@ -1,4 +1,4 @@
-<div class="mt-3" [ngClass]="{'fondoSegunda': titulo === 'Equipos 2º Division Española', 'fondoPrimera': titulo === 'Equipos 1º Division Española', 'fondoTercera': titulo === 'Equipos Primera RFEF'}"><h1>{{ titulo }}</h1></div>
+<div class="mt-3" [ngClass]="{'fondoSegunda': titulo === 'Equipos 2º Division Española', 'fondoPrimera': titulo === 'Equipos 1º Division Española', 'fondoTercera': titulo === 'Equipos Primera RFEF'}"><span class="tituloEspecial">{{ titulo }}</span></div>
 
 
 <div class="container">
@@ -32,10 +32,10 @@
                 <div class="col-md-8">
                     <div class="card-body">
                         <h5 class="card-title importante">{{ equipo.equipo_nombre}}</h5>
-                        <p class="card-text"><a class="nav-link enlaceCiudad" [routerLink]="['/CiudadEquipo', { nombreEquipo: equipo.equipo_nombre }]"><img src="{{ equipo.ciudad_bandera}}" class="banderaCiudad" title="{{ equipo.ciudad_nombre}}">{{ equipo.ciudad_nombre}}</a></p>
+                        <p class="card-text"><a class="nav-link enlaceCiudad menosImportante" [routerLink]="['/CiudadEquipo', { nombreEquipo: equipo.equipo_nombre }]"><img src="{{ equipo.ciudad_bandera}}" class="banderaCiudad" title="{{ equipo.ciudad_nombre}}">{{ equipo.ciudad_nombre}}</a></p>
                             <div class="contenedorBotones">
                                 <div class="col">
-                                    <a class="nav-link" [routerLink]="['/DetallesEquipo', { nombreEquipo: equipo.equipo_nombre }]"><button class="button cancelar" name="Detalles" (mouseover)="aumentarTamanio($event)" (mouseout)="reducirTamanio($event)" *ngIf="isAuthenticated()">Detalles</button></a>
+                                    <a class="nav-link" [routerLink]="['/DetallesEquipo', { nombreEquipo: equipo.equipo_nombre }]"><button class="button cancelar" name="Detalles" (mouseover)="aumentarTamanio($event)" (mouseout)="reducirTamanio($event)">Detalles</button></a>
                                     
                                 </div>
                                 <div class="col" *ngIf="isAuthenticated() && usuarioC && usuarioC.tipo_usuario && usuarioC.tipo_usuario == 'S'">

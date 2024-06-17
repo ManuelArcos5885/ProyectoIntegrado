@@ -1,7 +1,7 @@
 <div class="titulo my-4 text-left d-flex align-items-center justify-content-between">
     <span class="d-flex align-items-center">
         <img src="../../../assets/imagenes_proyecto/otros/logoNetBall.png" class="logo">
-        <h3 class="tituloPrincipal">NetBall</h3>
+        <h3 class="tituloPrincipal tituloEspecial">NetBall</h3>
     </span>
 
     <div class="dropdown">
@@ -25,28 +25,6 @@
         <div class="col">
             <button *ngIf="usuarioC" (click)="abrirCreadorComentario()" class="btn btn-primary">{{botonRedactarMensaje}}</button>
         </div>
-        <!--<div class="col">
-            <form class="form">
-                <label for="search">
-                    <input required="" autocomplete="off" placeholder="Buscar" id="search" type="text">
-                    <div class="icon">
-                        <svg stroke-width="2" stroke="currentColor" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="swap-on">
-                            <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linejoin="round" stroke-linecap="round"></path>
-                        </svg>
-                        <svg stroke-width="2" stroke="currentColor" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="swap-off">
-                            <path d="M10 19l-7-7m0 0l7-7m-7 7h18" stroke-linejoin="round" stroke-linecap="round"></path>
-                        </svg>
-                    </div>
-                    <button type="reset" class="close-btn">
-                        <svg viewBox="0 0 20 20" class="h-5 w-5" xmlns="http://www.w3.org/2000/svg">
-                            <path clip-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" fill-rule="evenodd"></path>
-                        </svg>
-                    </button>
-                </label>
-            </form>
-            
-
-        </div>-->
     </div>
 
     <div class="row mt-3 redactarComentario" *ngIf="escribirComentario">
@@ -64,14 +42,14 @@
 
     <div class="row mt-5">
         <div class="col-9">
-            <h4 class="chat-global-title">CHAT {{selectedCanal}}</h4>
+            <h4 class="chat-global-title tituloMenosEspecial">CHAT {{selectedCanal}}</h4>
             <div class="comments-section">
                 <div *ngFor="let comentario of comentariosConUsuario">
-                    <div class="comment-card" *ngIf="comentario.borrado != 1">
+                    <div class="comment-card" *ngIf="comentario.borrado != 1 && equipoCanalSeleccionado(comentario)">
                         <div class="comment-header">
-                            <span class="comment-user-icon">👤{{comentario.nombreUsuario}}</span>
+                            <span class="comment-user-icon importante">👤{{comentario.nombreUsuario}}</span>
                             <span class="comment-title"></span>
-                            <span class="comment-date">{{comentario.fechaPublicacion}}</span>
+                            <span class="comment-date menosImportante">{{comentario.fechaPublicacion}}</span>
                         </div>
                         <div class="comment-body">
                             <p>{{comentario.mensaje}}</p>
@@ -113,7 +91,7 @@
         <div class="col-3">
             <div class="menu-fixed">
                 <div class="row d-flex justify-content-between">
-                    <h4>Temáticas</h4>
+                    <span class="importante d-flex justify-content-center">Temáticas</span>
                 </div>
                 <ul class="list-group">
                     <li class="list-group-item my-2" (click)="seleccionarTema(tema.tema_nombre)" *ngFor="let tema of temas" [ngClass]="{'bg-primary text-white': selectedTema === tema.tema_nombre}">

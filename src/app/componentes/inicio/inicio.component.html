@@ -46,7 +46,7 @@
     <div class="col-5">
       <div class="inicioSesion" *ngIf="!usuarioC">
         <div class="tituloInicioSesion mb-4">
-          <span><h3>Inicio Sesión</h3></span>
+          <span class="importante">Inicio Sesión</span>
         </div>
         <div class="row justify-content-center">
           <div class="row mb-3 d-flex justify-content-center">
@@ -60,7 +60,7 @@
 
       <div class="ligasDisponibles">
         <div class="ligasDisponiblesTitulos mb-5">
-          <h3>Ligas Disponibles</h3>
+          <span class="importante">Ligas Disponibles</span>
         </div>
         <div class="row justify-content-center container">
           <div class="row mb-3 d-flex justify-content-center">
@@ -89,7 +89,7 @@
     <div class="col-6">
       <div class="noticiasRecientes">
         <div class="tituloNoticiasRecientes mb-4">
-          <h3>Comentarios Recientes</h3>
+          <span class="importante">Comentarios Recientes</span>
         </div>
         <div class="container">
           <div class="row comentariosRecientes" *ngFor="let comentario of comentariosConUsuario" [routerLink]="['/NetBall']">

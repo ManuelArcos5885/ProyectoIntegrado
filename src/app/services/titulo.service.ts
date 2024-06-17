@@ -18,10 +18,6 @@ export class TituloService {
     return this.httpClient.get<Titulo[]>(`${this.baseURL + "/listartodos"}`);
   }
 
-  obtenerTodosEquiposMenos(tituloNombre:string): Observable<Titulo[]> {
-    return this.httpClient.get<Titulo[]>(`${this.baseURL}/listartodosMenos?tituloNombre=${tituloNombre}`);
-  }
-
 
   obtenerTitulo(idTitulo:number):Observable<Titulo[]>{
     return this.httpClient.get<Titulo[]>(`${this.baseURL}/obtenerTitulo?idTitulo=${idTitulo}`);

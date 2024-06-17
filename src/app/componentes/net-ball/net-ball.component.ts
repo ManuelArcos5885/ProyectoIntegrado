@@ -164,10 +164,13 @@ export class NetBallComponent implements OnInit{
       let usuarioEncontrado = this.usuarios.find(u => u.idusuarios === respuesta.usuario);
       return {
         ...respuesta,
-        nombreUsuario: usuarioEncontrado ? usuarioEncontrado.nombre : 'Usuario desconocido'
+        nombreUsuario: usuarioEncontrado ? usuarioEncontrado.nombre : 'Usuario desconocido',
+        nombreEquipo: usuarioEncontrado ? usuarioEncontrado.equipo_nombre : null
       } as RespuestasConUsuario;
 
     });
+
+
   }
 
 
@@ -176,7 +179,8 @@ export class NetBallComponent implements OnInit{
       let usuarioEncontrado = this.usuarios.find(u => u.idusuarios === comentario.usuario);
       return {
         ...comentario,
-        nombreUsuario: usuarioEncontrado ? usuarioEncontrado.nombre : 'Usuario desconocido'
+        nombreUsuario: usuarioEncontrado ? usuarioEncontrado.nombre : 'Usuario desconocido',
+        nombreEquipo: usuarioEncontrado ? usuarioEncontrado.equipo_nombre : null
       } as ComentarioConNombreUsuario;
     });
   }
@@ -489,6 +493,26 @@ export class NetBallComponent implements OnInit{
 
       
 
+  }
+
+
+  equipoCanalSeleccionado(comentario:ComentarioConNombreUsuario){
+    if(this.selectedCanal == 'Equipo'){
+      if(this.usuarioC){
+        if(this.usuarioC.equipo_nombre == comentario.nombreEquipo){
+          return true;
+        }
+        else{
+          return false;
+        }
+      }
+      else{
+        return false;
+      }
+    }
+    else{
+      return true;
+    }
   }
 
 }
