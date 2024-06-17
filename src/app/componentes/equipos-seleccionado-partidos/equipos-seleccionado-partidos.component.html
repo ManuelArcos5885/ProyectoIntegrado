@@ -1,6 +1,6 @@
 <div class="filaBotonesAdmin" *ngFor="let equipo of equipoPasado">
   <div class="col-2" *ngIf="usuarioC && (usuarioC.tipo_usuario == 'A' || usuarioC.tipo_usuario == 'S')">
-    <button class="btn btn-info" name="Detalles" (click)="openModal(equipo)">Editar Partidos</button>
+    <button class="button cancelar" name="Detalles" (click)="openModal(equipo)">Editar Partidos</button>
   </div>
 </div>
 

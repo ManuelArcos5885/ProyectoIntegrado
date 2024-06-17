@@ -1,10 +1,10 @@
 <div class="filaBotonesAdmin">
     <div class="col-2" *ngIf="usuarioC && (usuarioC.tipo_usuario == 'A' || usuarioC.tipo_usuario == 'S')">
-        <a class="nav-link" [routerLink]="['/CrearTitulo']"><button class="btn btn-info" name="Detalles">Crear Titulo</button></a>
+        <a class="nav-link" [routerLink]="['/CrearTitulo']"><button class="button cancelar" name="Detalles">Crear Titulo</button></a>
     </div>
 
     <div class="col-2" *ngIf="usuarioC && (usuarioC.tipo_usuario == 'A' || usuarioC.tipo_usuario == 'S')">
-        <a class="nav-link" [routerLink]="['/CrearGanador', { equipoPasado: equipoPasado[0].idequipos}]"><button class="btn btn-info" name="Detalles">Crear Ganador</button></a>
+        <a class="nav-link" [routerLink]="['/CrearGanador', { equipoPasado: equipoPasado[0].idequipos}]"><button class="button cancelar" name="Detalles">Crear Ganador</button></a>
     </div>
 </div>
 

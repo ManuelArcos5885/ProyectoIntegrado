@@ -41,7 +41,10 @@
                     <div class="row" *ngIf="usuarioC && usuarioC.tipo_usuario == 'S'">
                         <div class="col">
                             <label>
-                                <input [(ngModel)]="usuario.tipo_usuario" required="" class="input" type="text" name="tipoUsuario" id="tipoUsuario" placeholder="Tipo Usuario">
+                                <select name="titulo" [(ngModel)]="usuario.tipo_usuario" class="input">
+                                    <option value="A">A</option>
+                                    <option value="U">U</option>
+                                </select>
                                 <span>Tipo Usuario</span>
                             </label>
                         </div>

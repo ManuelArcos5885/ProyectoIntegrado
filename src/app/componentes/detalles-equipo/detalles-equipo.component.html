@@ -1,7 +1,7 @@
 <div class="container" *ngFor="let club of equipoPasado">
   <header class="nombreEquipo" [ngStyle]="{'background-color': club.color_secundario}">
     <h1>{{ club.equipo_nombre_completo }}</h1>
-    <span *ngIf="usuarioC && (usuarioC.tipo_usuario == 'A' || usuarioC.tipo_usuario == 'S')"><button class="btn btn-info" name="Editar" name="Editar" (click)="openModal(club)">Editar Datos {{ club.equipo_nombre}}</button></span>
+    <span *ngIf="usuarioC && (usuarioC.tipo_usuario == 'A' || usuarioC.tipo_usuario == 'S')" class="d-flex justify-content-center"><button class="button cancelar" name="Editar" name="Editar" (click)="openModal(club)">Editar Datos {{ club.equipo_nombre}}</button></span>
   </header>
   <section class="club-info" [ngStyle]="{'background-color': club.color_primario}">
     <img src="{{ club.escudo_equipo }}" alt="Logo del Club" class="logo">

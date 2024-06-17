@@ -53,6 +53,7 @@ import { CrearCanalComponent } from './componentes/crear-canal/crear-canal.compo
 import { ElegirUsuariosComponent } from './componentes/elegir-usuarios/elegir-usuarios.component';
 import { ModalAdvertenciaComponent } from './componentes/modal-advertencia/modal-advertencia.component';
 import { PapeleraComponent } from './componentes/papelera/papelera.component';
+import { EditarEstadioComponent } from './componentes/editar-estadio/editar-estadio.component';
 
 
 @NgModule({
@@ -104,6 +105,7 @@ import { PapeleraComponent } from './componentes/papelera/papelera.component';
     ElegirUsuariosComponent,
     ModalAdvertenciaComponent,
     PapeleraComponent,
+    EditarEstadioComponent,
   ],
   imports: [
     BrowserModule,

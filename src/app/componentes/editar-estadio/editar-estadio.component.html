@@ -1,0 +1,47 @@
+<div class="modal" id="editarEstadioModal">
+    <div class="modal-content">
+      <span class="close" (click)="closeModal()">&times;</span>
+        <div class="container">
+            <div class="containerLogin espacio my-5">
+                <div class="heading">Editar Estadio</div>
+                <form action="" class="form" (ngSubmit)="onSubmit()">
+                    <div class="row">
+                        <div class="col">
+                            <label>
+                                <input [(ngModel)]="estadio.nombreEstadio" required="" class="input" type="text" name="nombreEstadio" id="nombreEstadio" placeholder="Nombre Estadio" >
+                                <span>Nombre del Estadio</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label>
+                                <input [(ngModel)]="estadio.arquitecto" required="" class="input" type="text" name="arquitecto" id="arquitecto" placeholder="arquitecto">
+                                <span>Arquitecto</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <label>
+                                <input [(ngModel)]="estadio.equipoNombre" required="" class="input" type="text" name="equipoNombre" id="equipoNombre" placeholder="Equipo Nombre">
+                                <span>Equipo</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <label>
+                                <input [(ngModel)]="estadio.inauguracion" required="" class="input" type="text" name="Inauguracion" id="Inauguracion" placeholder="Inauguracion">
+                                <span>Inauguracion</span>
+                            </label>
+                        </div>
+                    </div>
+                    <input class="login-button" type="submit" value="Guardar Cambios">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

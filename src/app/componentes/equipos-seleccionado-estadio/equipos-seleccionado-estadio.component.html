@@ -1,1 +1,37 @@
-<p>equipos-seleccionado-estadio works!</p>
+<div class="filaBotonesAdmin" *ngFor="let equipo of equipoPasado">
+    <div class="col-2" *ngIf="usuarioC && (usuarioC.tipo_usuario == 'A' || usuarioC.tipo_usuario == 'S')">
+      <button class="button cancelar btn-info" name="Detalles" (click)="openModal(estadioEquipoPadaso)">Editar Estadio</button>
+    </div>
+  </div>
+  
+  <div class="container">
+      <table class="table-bordered table table-striped">
+        <thead> 
+          <tr>
+            <th>Nombre estadio</th>
+            <th>Nombre Equipo</th>
+            <th>Comunidad Equipo</th>
+            <th>Ciudad Equipo</th>
+            <th>Aforo</th>
+            <th>Arquitecto</th>
+            <th>inauguracion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngIf="estadioEquipoPadaso">
+            <td>{{ estadioEquipoPadaso.nombreEstadio }}</td>
+            <td>{{ equipoPasado[0].equipo_nombre }}</td>
+            <td>{{ equipoPasado[0].comunidad_nombre }}</td>
+            <td>{{ equipoPasado[0].ciudad_nombre }}</td>
+            <td>{{ estadioEquipoPadaso.aforo }}</td>
+            <td>{{ estadioEquipoPadaso.arquitecto }}</td>
+            <td>{{ estadioEquipoPadaso.inauguracion }}</td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+  
+  
+  <app-editar-estadio *ngIf="estadioEquipoPadaso" [estadio]="estadioEquipoPadaso" (close)="closeModal($event)"></app-editar-estadio>
+    
+  
